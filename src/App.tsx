@@ -1,23 +1,19 @@
-import './App.css';
-import styles from './index.module.scss';
-import GlobalState from './store/global';
 import { useContainer } from 'unstated-next';
+import GlobalState from './store/global';
+import RoutesIndex from './Route';
+import { Button } from 'antd';
 
-function App() {
+export default function App() {
   const { count, setCount } = useContainer(GlobalState);
   return (
-    <>
-      <div className={`${styles.App} h-[100vh]`}>
-        Demo
-        <div>
-          <div>{count}</div>
-          <div>
-            <button onClick={() => setCount((val) => val + 1)}>+1</button>
-          </div>
-        </div>
+    <div className="flex justify-center items-center w-[100vh] h-[100vh]">
+      <div>
+        <h1>Vite</h1>
+        <Button type="primary" onClick={() => setCount((val) => val + 1)}>
+          {count}
+        </Button>
+        <RoutesIndex />
       </div>
-    </>
+    </div>
   );
 }
-
-export default App;
